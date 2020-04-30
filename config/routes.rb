@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root "messages#index"
   resources :messages
   resources :contacts
   devise_for :users
