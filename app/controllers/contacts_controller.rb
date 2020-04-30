@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
-
+    @contact.user = current_user
     if @contact.save
       redirect_to @contact, notice: "Contact was successfully created."
     else
@@ -52,6 +52,6 @@ class ContactsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def contact_params
-    params.require(:contact).permit(:name, :phone_number, :user_id)
+    params.require(:contact).permit(:name, :phone_number)
   end
 end

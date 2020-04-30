@@ -29,7 +29,7 @@ gem "jbuilder", "~> 2.7"
 gem "devise"
 gem "rubocop-performance"
 gem "rubocop-rails"
-gem 'twilio-ruby', '~> 5.34.0'
+gem "twilio-ruby", "~> 5.34.0"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
 
@@ -41,6 +41,7 @@ end
 group :development do
   gem "annotate"
   gem "draft_generators", github: "firstdraft/draft_generators"
+  gem "faker"
   gem "rails-erd"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "listen", ">= 3.0.5", "< 3.2"

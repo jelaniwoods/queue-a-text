@@ -20,6 +20,8 @@ class MessagesController < ApplicationController
   # POST /messages
   def create
     @message = Message.new(message_params)
+    send_time = params[:message][:send_time]
+    @message.send_time = Time.strptime(send_time, "%m/%d/%Y %l:%M %p").to_datetime
 
     if @message.save
       redirect_to @message, notice: "Message was successfully created."
@@ -52,6 +54,6 @@ class MessagesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def message_params
-    params.require(:message).permit(:content, :time_send, :message_sent, :contact_id)
+    params.require(:message).permit(:content, :send_time, :message_sent, :contact_id)
   end
 end

@@ -13,17 +13,17 @@
 class Message < ApplicationRecord
   belongs_to :contact
   has_one :user, through: :contact, source: :user
-  
+
   scope :unsent, -> { where(message_sent: false) }
   scope :sendable, -> { where(send_time: (DateTime.current - 10.minutes)..(DateTime.current + 10.minutes)) }
 
   # TODO add time zones
-  def send
-    unless message_sent 
+  def send_message
+    unless message_sent
       twilio_client.messages.create(
         from: ENV.fetch("TWILIO_PHONE_NUMBER"),
         to: contact.phone_number,
-        body: content
+        body: content,
       )
       update(message_sent: true)
     end
