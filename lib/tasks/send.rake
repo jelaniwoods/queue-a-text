@@ -1,6 +1,7 @@
 namespace :send do
-  desc "TODO"
+  desc "Send any queue'd messages and mark them as sent."
   task messages: :environment do
+    messages = Message.unsent
+    messages.map(&:send)
   end
-
 end
