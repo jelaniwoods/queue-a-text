@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <%= contact.name %>
+  </td>
+
+  <td>
+    <%= contact.phone_number %>
+  </td>
+
+  <td>
+    <%= contact.user_id %>
+  </td>
+
+  <td>
+    <div class="btn-group">
+      <%= link_to contact, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-search-plus fa-fw"></i>
+      <% end %>
+
+      <%= link_to edit_contact_url(contact), class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-edit fa-fw"></i>
+      <% end %>
+
+      <%= link_to contact, method: :delete, data: { confirm: "Do you really want to delete this contact?" }, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-trash-alt fa-fw"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

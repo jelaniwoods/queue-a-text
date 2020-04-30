@@ -1,0 +1,79 @@
+<% was_validated = contact.errors.any? %>
+
+<% form_html_options = { novalidate: true, class: "mb-3" } %>
+
+<%= form_for(contact, html: form_html_options) do |f| %>
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = contact.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <% if name_was_invalid %>
+      <% contact.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% phone_number_class = "form-control" %>
+    <% phone_number_was_invalid = contact.errors.include?(:phone_number) %>
+
+    <% if was_validated %>
+      <% if phone_number_was_invalid %>
+        <% phone_number_class << " is-invalid" %>
+      <% else %>
+        <% phone_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :phone_number %>
+
+    <%= f.text_field :phone_number, class: phone_number_class, placeholder: "Enter phone number" %>
+    <% if phone_number_was_invalid %>
+      <% contact.errors.full_messages_for(:phone_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% user_id_class = "form-control" %>
+    <% user_id_was_invalid = contact.errors.include?(:user_id) %>
+
+    <% if was_validated %>
+      <% if user_id_was_invalid %>
+        <% user_id_class << " is-invalid" %>
+      <% else %>
+        <% user_id_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+
+    <%= f.text_field :user_id, class: user_id_class, placeholder: "Enter user" %>
+    <% if user_id_was_invalid %>
+      <% contact.errors.full_messages_for(:user_id).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

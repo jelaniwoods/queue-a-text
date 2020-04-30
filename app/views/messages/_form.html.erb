@@ -1,0 +1,103 @@
+<% was_validated = message.errors.any? %>
+
+<% form_html_options = { novalidate: true, class: "mb-3" } %>
+
+<%= form_for(message, html: form_html_options) do |f| %>
+  <div class="form-group">
+    <% content_class = "form-control" %>
+    <% content_was_invalid = message.errors.include?(:content) %>
+
+    <% if was_validated %>
+      <% if content_was_invalid %>
+        <% content_class << " is-invalid" %>
+      <% else %>
+        <% content_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :content %>
+
+    <%= f.text_area :content, class: content_class, placeholder: "Enter content" %>
+    <% if content_was_invalid %>
+      <% message.errors.full_messages_for(:content).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% time_send_class = "form-control" %>
+    <% time_send_was_invalid = message.errors.include?(:time_send) %>
+
+    <% if was_validated %>
+      <% if time_send_was_invalid %>
+        <% time_send_class << " is-invalid" %>
+      <% else %>
+        <% time_send_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :time_send %>
+
+    <%= f.datetime_select :time_send, class: time_send_class, placeholder: "Enter time send" %>
+    <% if time_send_was_invalid %>
+      <% message.errors.full_messages_for(:time_send).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-check">
+    <% message_sent_class = "form-check-input" %>
+    <% message_sent_was_invalid = message.errors.include?(:message_sent) %>
+
+    <% if was_validated %>
+      <% if message_sent_was_invalid %>
+        <% message_sent_class << " is-invalid" %>
+      <% else %>
+        <% message_sent_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :message_sent, class: "form-check-label" do %>
+      <%= f.check_box :message_sent, class: message_sent_class %> Message sent
+    <% end %>
+    <% if message_sent_was_invalid %>
+      <% message.errors.full_messages_for(:message_sent).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% contact_id_class = "form-control" %>
+    <% contact_id_was_invalid = message.errors.include?(:contact_id) %>
+
+    <% if was_validated %>
+      <% if contact_id_was_invalid %>
+        <% contact_id_class << " is-invalid" %>
+      <% else %>
+        <% contact_id_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :contact_id %>
+
+    <%= f.text_field :contact_id, class: contact_id_class, placeholder: "Enter contact" %>
+    <% if contact_id_was_invalid %>
+      <% message.errors.full_messages_for(:contact_id).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

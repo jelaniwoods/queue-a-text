@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/firstdraft/draft_generators.git
+  revision: 5f55458698c2473fe526c0d25dca85d3dc0747b9
+  specs:
+    draft_generators (0.0.3)
+      devise
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,6 +67,8 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.0)
+    bcrypt (3.1.13)
+    bcrypt (3.1.13-java)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -70,6 +79,12 @@ GEM
     choice (0.2.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    devise (4.7.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.9.0)
     ffi (1.12.2)
     ffi (1.12.2-java)
@@ -112,6 +127,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x86-mingw32)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     parallel (1.19.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
@@ -163,6 +179,9 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    responders (3.0.0)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.4)
     rubocop (0.82.0)
       jaro_winkler (~> 1.5.1)
@@ -217,6 +236,8 @@ GEM
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -244,6 +265,8 @@ DEPENDENCIES
   annotate
   bootsnap (>= 1.4.2)
   byebug
+  devise
+  draft_generators!
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
