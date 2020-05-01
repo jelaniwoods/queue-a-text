@@ -15,6 +15,7 @@ class Message < ApplicationRecord
   has_one :user, through: :contact, source: :user
 
   validates :send_time, presence: true
+  validates :contact, presence: true
   validates :content, presence: true
 
   scope :unsent, -> { where(message_sent: false) }

@@ -15,4 +15,5 @@ class Contact < ApplicationRecord
 
   validates :phone_number, presence: true
   validates :name, presence: true
+  validates :user, presence: true
 end
