@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   def update
     if @contact.update(contact_params)
-      redirect_to @contact, notice: "Contact was successfully updated."
+      redirect_to contacts_url, notice: "Contact was successfully updated."
     else
       render :edit
     end
