@@ -22,12 +22,17 @@ Two words: Heroku scheduler
 1. `bin/setup`
 1. Add twilio credentials to `.env`
 
+```bash
+TWILIO_PHONE_NUMBER=****************
+TWILIO_ACCOUNT_SID=****************
+TWILIO_AUTH_TOKEN=****************
+```
 
 ## Set up
 
 ### Requirements
 
-- [Node.js](https://nodejs.org/)
+- Ruby, Rails
 - A Twilio account - [sign up](https://www.twilio.com/try-twilio)
 
 ### Twilio Account Settings
@@ -70,48 +75,12 @@ See [Twilio Account Settings](#twilio-account-settings) to locate the necessary 
 4. Run the application
 
 ```bash
-npm start
-```
-
-Alternatively, you can use this command to start the server in development mode. It will reload whenever you change any files.
-
-```bash
-npm run dev
+rails server
 ```
 
 5. Navigate to [http://localhost:3000](http://localhost:3000)
 
 That's it!
-
-### Tests
-
-You can run the tests locally by typing:
-
-```bash
-npm test
-```
-
-### Cloud deployment
-
-Additionally to trying out this application locally, you can deploy it to a variety of host services. Here is a small selection of them.
-
-Please be aware that some of these might charge you for the usage or might make the source code for this application visible to the public. When in doubt research the respective hosting service first.
-
-| Service                           |                                                                                                                                                                                                                           |
-| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Heroku](https://www.heroku.com/) | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                                                                                                                       |
-| [Glitch](https://glitch.com)      | [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/remix/clone-from-repo?REPO_URL=https://github.com/twilio-labs/sample-template-nodejs.git) |
-| [Zeit](https://zeit.co/)          | [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/twilio-labs/sample-template-nodejs/tree/master)                                                                 |
-
-## Resources
-
-- [GitHub's repository template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) functionality
-
-## Contributing
-
-This template is open source and welcomes contributions. All contributions are subject to our [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md).
-
-[Visit the project on GitHub](https://github.com/twilio-labs/sample-template-nodejs)
 
 ## License
 
