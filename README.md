@@ -53,32 +53,13 @@ After the above requirements have been met:
 
 1. Clone this repository and `cd` into it
 
-```bash
-git clone git@github.com:twilio-labs/sample-template-nodejs.git
-cd sample-template-nodejs
-```
-
-2. Install dependencies
+2. Run the application
 
 ```bash
-npm install
+bin/setup && rails server
 ```
 
-3. Set your environment variables
-
-```bash
-npm run setup
-```
-
-See [Twilio Account Settings](#twilio-account-settings) to locate the necessary environment variables.
-
-4. Run the application
-
-```bash
-rails server
-```
-
-5. Navigate to [http://localhost:3000](http://localhost:3000)
+3. Navigate to [http://localhost:3000](http://localhost:3000)
 
 That's it!
 

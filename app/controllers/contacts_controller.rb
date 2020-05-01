@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user = current_user
     if @contact.save
-      redirect_to @contact, notice: "Contact was successfully created."
+      redirect_to contacts_url, notice: "Contact was successfully created."
     else
       render :new
     end
