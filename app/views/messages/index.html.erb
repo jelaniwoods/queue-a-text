@@ -79,7 +79,7 @@
         </thead>
 
         <tbody>
-          <%= render collection: current_user.messages.sent, partial: "table_row", as: :message %>
+          <%= render collection: current_user.messages.sent.order(:send_time).reverse, partial: "table_row", as: :message %>
         </tbody>
       </table>
     </div>
