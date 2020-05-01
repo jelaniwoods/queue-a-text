@@ -21,6 +21,8 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     send_time = params[:message][:send_time]
+    name = params[:message][:contact_id]
+    @message.contact = Contact.find_by(name: name)
     @message.send_time = Time.strptime(send_time, "%m/%d/%Y %l:%M %p").to_datetime
 
     if @message.save

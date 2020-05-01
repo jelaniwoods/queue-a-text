@@ -14,6 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
+    <h2>Upcoming Messages</h2>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -41,41 +42,46 @@
         </thead>
 
         <tbody>
-          <%= render collection: @messages, partial: "table_row", as: :message %>
+          <%= render collection: current_user.messages.unsent, partial: "table_row", as: :message %>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
-<!-- Card deck example -->
-
-<% @messages.each_slice(3) do |slice| %>
 <div class="row">
   <div class="col-md-12">
-    <div class="card-deck">
-      <%= render collection: slice, partial: "card", as: :message %>
-    </div>
-  </div>
-</div>
-<% end %>
+    <h2>Sent Messages</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Content
+            </th>
 
-<!-- List group example -->
+            <th>
+              Send On
+            </th>
 
-<div class="row justify-content-center mb-3">
-  <div class="col-md-8">
-    <div class="card">
-      <h1 class="card-header h4 d-flex align-items-center justify-content-between">
-        Messages
+            <th>
+              Message sent
+            </th>
 
-        <%= link_to new_message_path, class: "btn btn-sm btn-outline-secondary" do %>
-          <i class="fas fa-plus fa-fw"></i>
-        <% end %>
-      </h1>
+            <th>
+              Contact
+            </th>
 
-      <div class="list-group list-group-flush">
-        <%= render collection: @messages, partial: "list_item", as: :message %>
-      </div>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render collection: current_user.messages.sent, partial: "table_row", as: :message %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

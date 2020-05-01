@@ -4,7 +4,7 @@
   </td>
 
   <td>
-    <%= message.send_time %>
+    <%= message.send_time.strftime("%B #{message.send_time.day.ordinalize}, %Y %-l:%M %p") %>
   </td>
 
   <td>

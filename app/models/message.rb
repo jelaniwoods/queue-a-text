@@ -14,7 +14,12 @@ class Message < ApplicationRecord
   belongs_to :contact
   has_one :user, through: :contact, source: :user
 
+  validates :send_time, presence: true
+  validates :content, presence: true
+
   scope :unsent, -> { where(message_sent: false) }
+  scope :sent, -> { where(message_sent: true) }
+  scope :upcoming, -> { where(send_time: Date.current..).order(send_time: :asc) }
   scope :sendable, -> { where(send_time: (DateTime.current - 10.minutes)..(DateTime.current + 10.minutes)) }
 
   # TODO add time zones

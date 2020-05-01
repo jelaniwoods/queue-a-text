@@ -12,4 +12,7 @@
 class Contact < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
+
+  validates :phone_number, presence: true
+  validates :name, presence: true
 end
