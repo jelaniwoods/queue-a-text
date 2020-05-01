@@ -41,7 +41,7 @@ end
 group :development do
   gem "annotate"
   gem "draft_generators", github: "firstdraft/draft_generators"
-  gem "faker"
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem "rails-erd"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "listen", ">= 3.0.5", "< 3.2"
