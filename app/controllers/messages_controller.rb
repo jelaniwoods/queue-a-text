@@ -34,7 +34,15 @@ class MessagesController < ApplicationController
 
   # PATCH/PUT /messages/1
   def update
-    if @message.update(message_params)
+    send_time = params[:message][:send_time]
+    name = params[:message][:contact_id]
+    content = params[:message][:content]
+    @message.contact = Contact.find_by(name: name)
+    if send_time.present?
+      @message.send_time = Time.strptime(send_time, "%m/%d/%Y %l:%M %p").to_datetime
+    end
+
+    if @message.save
       redirect_to @message, notice: "Message was successfully updated."
     else
       render :edit

@@ -44,7 +44,7 @@
     <%# f.datetime_field :send_time, class: send_time_class, placeholder: "Enter Send On" %>
     <%# <div class="form-group"> %>
       <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-          <input type="text" name="message[send_time]" id="message_send_time" value="<%= message.send_time.strftime("%m/%d/%Y %-l:%M %p") %>" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+          <input type="text" name="message[send_time]" id="message_send_time" value="<%= message.send_time.nil? ? nil : message.send_time.strftime("%m/%d/%Y %-l:%M %p") %>" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
           <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
@@ -53,8 +53,8 @@
     <script type="text/javascript">
       $(function () {
           $("#datetimepicker1").datetimepicker({
-              defaultDate: moment("<%= DateTime.current %>"),
-              minDate: moment("<%= DateTime.current - 20.minutes %>"),
+              defaultDate: moment("<%= Date.current %>"),
+              // minDate: moment("<%= Date.current %>"),
           });
       });
     </script>
@@ -80,7 +80,7 @@
     <% end %>
 
     <%= f.label :contact_id %>
-    <%= f.text_field :contact_id, class: contact_id_class, placeholder: "Enter contact", list: 'user_contacts', value: message.contact.name, autocomplete: :on %>
+    <%= f.text_field :contact_id, class: contact_id_class, placeholder: "Enter contact", list: 'user_contacts', value: message.contact.present? ? message.contact.name : nil, autocomplete: :on %>
     <datalist id="user_contacts">
       <% current_user.contacts.each do |contact| %>
         <option value="<%= contact.name %>"></option>
