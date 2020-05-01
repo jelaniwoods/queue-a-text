@@ -2,6 +2,6 @@ namespace :send do
   desc "Send any queue'd messages and mark them as sent."
   task messages: :environment do
     messages = Message.unsent.sendable
-    messages.map(&:send)
+    messages.map(&:send_message)
   end
 end

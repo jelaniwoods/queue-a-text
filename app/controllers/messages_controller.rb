@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     @message.send_time = Time.strptime(send_time, "%m/%d/%Y %l:%M %p").to_datetime
 
     if @message.save
-      redirect_to @message, notice: "Message was successfully created."
+      redirect_to messages_url, notice: "Message was successfully created."
     else
       render :new
     end
@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
     end
 
     if @message.save
-      redirect_to @message, notice: "Message was successfully updated."
+      redirect_to messages_url, notice: "Message was successfully updated."
     else
       render :edit
     end

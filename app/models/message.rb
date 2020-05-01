@@ -21,7 +21,7 @@ class Message < ApplicationRecord
   scope :unsent, -> { where(message_sent: false) }
   scope :sent, -> { where(message_sent: true) }
   scope :upcoming, -> { where(send_time: Date.current..).order(send_time: :asc) }
-  scope :sendable, -> { where(send_time: (DateTime.current - 10.minutes)..(DateTime.current + 10.minutes)) }
+  scope :sendable, -> { where(Message.arel_table[:send_time].lt(DateTime.current + 10.minutes)) }
 
   # TODO add time zones
   def send_message
